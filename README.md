@@ -1,4 +1,3 @@
-
 # OTP Grabber for macOS
 
 Automatically detects OTPs from incoming iMessages on your Mac, copies them to your clipboard, and shows a native macOS notification — all running silently in the background.
@@ -29,46 +28,29 @@ Automatically detects OTPs from incoming iMessages on your Mac, copies them to y
 
 ## 📦 Setup (First Time Only)
 
-1. **Download or clone this repo:**
+1. **Download this repo or unzip the package**
 
-    ```bash
-    git clone https://github.com/ribhuchawla/otp-grabber.git
-    cd otp-grabber-mac
-    ```
+2. **Run the setup script to initialize the environment**
 
-2. **Run the setup script:**
-
-    ```bash
-    ./setup_env.command
-    ```
-
-    This creates a Python virtual environment and installs the required packages.
+```bash
+cd ~/Library/Application\ Support/otp-grabber
+./setup_env.command
+```
 
 3. **Grant Full Disk Access to Terminal:**
 
-    - Open **System Settings → Privacy & Security → Full Disk Access**
-    - Add **Terminal.app** and **python3** (drag from `/opt/homebrew/bin/python3`)
-    - Quit and reopen Terminal
+- Go to **System Settings → Privacy & Security → Full Disk Access**
+- Add **Terminal.app** and **/opt/homebrew/bin/python3**
+- Quit and reopen Terminal
 
-4. **Test it manually:**
+4. **Install the launch agent**
 
-    ```bash
-    ./otp_grabber.command
-    ```
+```bash
+cp com.ribhu.otpgrabber.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.ribhu.otpgrabber.plist
+```
 
-    You should see:
-
-    ✅ OTP Grabber is running...  
-    📋 Copied OTP: 123456
-
----
-
-## 🔄 Auto-Launch on Login
-
-To have it run every time you boot your Mac:
-
-- Open **System Settings → General → Login Items**
-- Click `+` and add `otp_grabber.command` from the project folder
+✅ You’re done! It now runs silently on every boot.
 
 ---
 
@@ -76,9 +58,13 @@ To have it run every time you boot your Mac:
 
 Send yourself an iMessage like:
 
-    Your verification code is 987654
+```
+Your OTP is 987654
+```
 
-You should receive a notification and find `987654` in your clipboard immediately.
+You should:
+- Get a native Mac notification
+- Be able to paste the OTP immediately (`Cmd + V`)
 
 ---
 
@@ -86,9 +72,10 @@ You should receive a notification and find `987654` in your clipboard immediatel
 
 ```
 otp-grabber/
-├── otp_grabber.py          # Core script that reads iMessages
-├── otp_grabber.command     # Double-click to run
-└── setup_env.command       # One-time environment setup
+├── otp_grabber.py              # Core script that reads iMessages
+├── setup_env.command           # One-time environment setup
+├── com.ribhu.otpgrabber.plist  # LaunchAgent for background execution
+└── README.md                   # This file
 ```
 
 ---
@@ -103,5 +90,5 @@ otp-grabber/
 
 ## 🙌 Credits
 
-Created by Ribhu Chawla(https://github.com/ribhuchawla) to scratch an itch.  
-Feel free to fork, extend, or contribute!
+Created by [Ribhu Chawla](https://github.com/yourusername)  
+PRs welcome!
