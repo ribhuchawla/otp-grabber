@@ -28,22 +28,28 @@ Automatically detects OTPs from incoming iMessages on your Mac, copies them to y
 
 ## 📦 Setup (First Time Only)
 
-1. **Download this repo or unzip the package**
+1. **Unzip this package** (e.g., from `Downloads`)
 
-2. **Run the setup script to initialize the environment**
+2. **Move the folder to Application Support (recommended location)**
+
+```bash
+mv ~/Downloads/otp-grabber ~/Library/Application\ Support/
+```
+
+3. **Run the setup script to initialize the environment**
 
 ```bash
 cd ~/Library/Application\ Support/otp-grabber
 ./setup_env.command
 ```
 
-3. **Grant Full Disk Access to Terminal:**
+4. **Grant Full Disk Access to Terminal:**
 
 - Go to **System Settings → Privacy & Security → Full Disk Access**
 - Add **Terminal.app** and **/opt/homebrew/bin/python3**
 - Quit and reopen Terminal
 
-4. **Install the launch agent**
+5. **Install the launch agent**
 
 ```bash
 cp com.ribhu.otpgrabber.plist ~/Library/LaunchAgents/
@@ -90,5 +96,5 @@ otp-grabber/
 
 ## 🙌 Credits
 
-Created by [Ribhu Chawla](https://github.com/yourusername)  
+Created by [Ribhu Chawla](https://github.com/ribhuchawla)  
 PRs welcome!
