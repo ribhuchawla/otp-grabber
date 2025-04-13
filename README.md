@@ -32,7 +32,7 @@ Automatically detects OTPs from incoming iMessages on your Mac, copies them to y
 1. **Download or clone this repo:**
 
     ```bash
-    git clone https://github.com/yourusername/otp-grabber-mac.git
+    git clone https://github.com/ribhuchawla/otp-grabber.git
     cd otp-grabber-mac
     ```
 
